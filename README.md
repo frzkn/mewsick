@@ -1,1 +1,3 @@
-![mewsick](mewsic.png)
+![mewsick](mewsick.png)
+
+## Mewsick - Music downloader
