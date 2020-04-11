@@ -1,4 +1,7 @@
+
 # Custom
+Pipfile*
+.vscode/
 *.session-journal
 bot.session
 venv
