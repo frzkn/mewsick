@@ -1,7 +1,8 @@
 # Custom
 *.session-journal
 bot.session
-
+venv
+git rm -r --cached some-directory
 
 # Created by https://www.gitignore.io/api/react,node,python,flask
 # Edit at https://www.gitignore.io/?templates=react,node,python,flask
