@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import logo from '../images/logo-alt.png'
 import Song from './Song'
 import axios from 'axios'
+import Loader from './Loader'
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -50,6 +51,7 @@ const Search = () => {
 
   const fetchSongs = (e) => {
     e.preventDefault()
+    setSearchSuggestions([])
     if ((!loading, searchQuery)) {
       setLoading(true)
       axios
@@ -117,6 +119,7 @@ const Search = () => {
         </div>
       </header>
       <section className="container mx-auto m-8 mb-64 ">
+        {loading && <Loader />}
         {!loading && searchResults.length > 1 && (
           <h1 className=" container lg:max-w-xl text-3xl mx-auto my-8 font-bold text-gray-800 ">Songs</h1>
         )}
