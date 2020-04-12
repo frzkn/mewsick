@@ -40,13 +40,13 @@ const Search = () => {
   }, [searchQuery])
 
   useEffect(() => {
-    if (searchQuery.length > 3 && searchQuery.length % 3 === 0) {
+    // if (searchQuery.length > 3 && searchQuery.length % 3 === 0) {
       axios
         .get(
           `https://cors-anywhere.herokuapp.com/http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`
         )
         .then((res) => setSearchSuggestions(res.data[1]))
-    }
+    // }
   }, [searchQuery])
 
   const fetchSongs = (e) => {
