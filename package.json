@@ -15,6 +15,7 @@
     "jsonp": "^0.2.1",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
+    "react-cool-music-player": "^1.0.6",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
@@ -28,7 +29,8 @@
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
     "eject": "react-scripts eject",
-    "server": "nodemon server/app.js"
+    "server": "nodemon server/app.js",
+    "cors": "nodemon cors/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
