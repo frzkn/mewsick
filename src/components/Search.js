@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import logo from '../images/logo-alt.png'
 import Song from './Song'
 import axios from 'axios'
 import Loader from './Loader'
+
+let jsonp = require('jsonp');
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -36,17 +38,18 @@ const Search = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    console.log(searchQuery)
+    // console.log(searchQuery)
   }, [searchQuery])
 
   useEffect(() => {
-    // if (searchQuery.length > 3 && searchQuery.length % 3 === 0) {
-    axios
-      .get(
-        `https://cors-anywhere.herokuapp.com/http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`
-      )
-      .then((res) => setSearchSuggestions(res.data[1]))
-    // }
+    jsonp(`http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`, null, function (err, data) {
+      if (err) {
+        console.error(err.message);
+      } else {
+        setSearchSuggestions(data[1]);
+      }
+    });
+
   }, [searchQuery])
 
   const fetchSongs = (e) => {
@@ -73,11 +76,12 @@ const Search = () => {
       <header className="main-search flex bg-gray-800 p-16 relative border-b-4 border-red-200">
         <div className="container mx-auto ">
           <div className="flex items-center justify-center">
-            <img className="h-16 mr-4 flex-shrink-0" src={logo} alt="" />
+            <img className="h-16 mr-4 flex-shrink-0" src={logo} alt=""/>
             <span className="badge bg-red-300 text-white text-xs px-2  rounded font-bold"> BETA </span>
           </div>
         </div>
-        <div className="border search-absolute shadow py-2 px-4 z-10 bg-white rounded-lg  text-gray-700 flex flex-col w-full max-w-xl ">
+        <div
+          className="border search-absolute shadow py-2 px-4 z-10 bg-white rounded-lg  text-gray-700 flex flex-col w-full max-w-xl ">
           <div className="flex items-center ">
             <svg
               fill="none"
@@ -101,29 +105,29 @@ const Search = () => {
             </form>
           </div>
           {searchQuery &&
-            searchSuggestions && [
-              <ul>
-                {searchSuggestions.map((suggestion) => (
-                  <li
-                    className="p-1 hover:text-black break-words"
-                    onClick={(e) => {
-                      setSearchQuery(e.target.textContent)
-                      setSearchSuggestions([])
-                    }}
-                  >
-                    {suggestion}
-                  </li>
-                ))}
-              </ul>,
-            ]}
+          searchSuggestions && [
+            <ul>
+              {searchSuggestions.map((suggestion) => (
+                <li
+                  className="p-1 hover:text-black break-words"
+                  onClick={(e) => {
+                    setSearchQuery(e.target.textContent)
+                    setSearchSuggestions([])
+                  }}
+                >
+                  {suggestion}
+                </li>
+              ))}
+            </ul>,
+          ]}
         </div>
       </header>
       <section className="container mx-auto m-8 mb-64 ">
-        {loading && <Loader />}
+        {loading && <Loader/>}
         {!loading && searchResults.length > 1 && (
           <h1 className=" container lg:max-w-xl text-2xl mx-auto mt-12 font-bold text-gray-800 ">Found $x results</h1>
         )}
-        {!loading && searchResults && searchResults.map((song) => <Song key={song.id} song={song} />)}
+        {!loading && searchResults && searchResults.map((song) => <Song key={song.id} song={song}/>)}
       </section>
     </main>
   )
