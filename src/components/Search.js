@@ -8,44 +8,32 @@ const Search = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([
     {
-      title: "World's LONGEST Lightsaber",
+      title: 'Tame Impala - Feels Like We Only Go Backwards (Official Video)',
       thumbnail:
-        'https://i.ytimg.com/vi/ofvoLdLssA8/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCAzde9_-NFRxBHqU0IyKa81Rtp6Q',
-      duration: '3:02',
-      views: 87191640,
-      id: 'ofvoLdLssA8',
+        'https://i.ytimg.com/vi/wycjnCCgUes/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCKZoPqsukMB-aXNXFxMcsaol7H6w',
+      duration: '3:21',
+      views: 112189485,
+      id: 'wycjnCCgUes',
     },
     {
-      title: 'Life with the longest hair - Guinness World Records',
+      title: 'The Less I Know The Better - Tame Impala Lyrics',
       thumbnail:
-        'https://i.ytimg.com/vi/CrH5wzP_Puo/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBg0gUsnGeX0DLQR9c21PIpvIhVpA',
-      duration: '2:45',
-      views: 467242,
-      id: 'CrH5wzP_Puo',
-    },
-    {
-      title: 'The Longest Week Official Trailer #1 (2014) - Olivia Wilde, Jason Bateman Movie HD',
-      thumbnail:
-        'https://i.ytimg.com/vi/Qwu51SYfQQs/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDo5JL6oe5OT5kq0RoE7WT-7ExNZg',
-      duration: '2:08',
-      views: 4938472,
-      id: 'Qwu51SYfQQs',
+        'https://i.ytimg.com/vi/O2lzmpEs29M/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCTcCJQMZnH5bR3l3e9HSHItAhI0A',
+      duration: '3:36',
+      views: 44171963,
+      id: 'O2lzmpEs29M',
     },
   ])
   const [searchSuggestions, setSearchSuggestions] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    console.log(searchQuery)
-  }, [searchQuery])
-
-  useEffect(() => {
     // if (searchQuery.length > 3 && searchQuery.length % 3 === 0) {
-    axios
-      .get(
-        `https://cors-anywhere.herokuapp.com/http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`
-      )
-      .then((res) => setSearchSuggestions(res.data[1]))
+    // axios
+    //   .get(
+    //     `https://cors-anywhere.herokuapp.com/http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`
+    //   )
+    //   .then((res) => setSearchSuggestions(res.data[1]))
     // }
   }, [searchQuery])
 
@@ -92,7 +80,7 @@ const Search = () => {
             </svg>
             <form onSubmit={fetchSongs} className="w-full">
               <input
-                className="outline-none w-full text-xl"
+                className="outline-none w-full "
                 type="text"
                 value={searchQuery}
                 onChange={handleSearchChange}
@@ -121,7 +109,7 @@ const Search = () => {
       <section className="container mx-auto m-8 mb-64 ">
         {loading && <Loader />}
         {!loading && searchResults.length > 1 && (
-          <h1 className=" container lg:max-w-xl text-2xl mx-auto mt-12 font-bold text-gray-800 ">Found $x results</h1>
+          <h1 className=" container lg:max-w-xl  mx-auto mt-12 font-bold text-gray-800 ">Found $x results</h1>
         )}
         {!loading && searchResults && searchResults.map((song) => <Song key={song.id} song={song} />)}
       </section>
