@@ -41,11 +41,11 @@ const Search = () => {
 
   useEffect(() => {
     // if (searchQuery.length > 3 && searchQuery.length % 3 === 0) {
-      axios
-        .get(
-          `https://cors-anywhere.herokuapp.com/http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`
-        )
-        .then((res) => setSearchSuggestions(res.data[1]))
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`
+      )
+      .then((res) => setSearchSuggestions(res.data[1]))
     // }
   }, [searchQuery])
 
@@ -77,7 +77,7 @@ const Search = () => {
             <span className="badge bg-red-300 text-white text-xs px-2  rounded font-bold"> BETA </span>
           </div>
         </div>
-        <div className="border search-absolute shadow py-1 px-2 z-10 bg-white rounded-lg  text-gray-700 flex flex-col w-2/5 ">
+        <div className="border search-absolute shadow py-2 px-4 z-10 bg-white rounded-lg  text-gray-700 flex flex-col w-full max-w-xl ">
           <div className="flex items-center ">
             <svg
               fill="none"
@@ -92,7 +92,7 @@ const Search = () => {
             </svg>
             <form onSubmit={fetchSongs} className="w-full">
               <input
-                className="outline-none w-full"
+                className="outline-none w-full text-xl"
                 type="text"
                 value={searchQuery}
                 onChange={handleSearchChange}
@@ -121,7 +121,7 @@ const Search = () => {
       <section className="container mx-auto m-8 mb-64 ">
         {loading && <Loader />}
         {!loading && searchResults.length > 1 && (
-          <h1 className=" container lg:max-w-xl text-3xl mx-auto my-8 font-bold text-gray-800 ">Songs</h1>
+          <h1 className=" container lg:max-w-xl text-2xl mx-auto mt-12 font-bold text-gray-800 ">Found $x results</h1>
         )}
         {!loading && searchResults && searchResults.map((song) => <Song key={song.id} song={song} />)}
       </section>

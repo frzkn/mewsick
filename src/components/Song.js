@@ -4,10 +4,10 @@ const Song = ({ song }) => {
   const { title, thumbnail, duration, views, id } = song
   return (
     <div>
-      <div className="grid grid-cols-4 bg-white border shadow max-w-xl px-4 py-4 mx-auto my-4 rounded-lg  text-gray-700 items-center align-middle">
-        <img className="rounded-custom h-32 border bg-gray-300 w-32 object-cover" src={thumbnail} alt="" />
-        <div className="flex flex-col col-span-2 ml-4">
-          <p className="font-bold text-2xl text-gray-800 flex-grow leading-tight ">
+      <div className="grid grid-cols-4 bg-white border shadow max-w-xl mx-auto my-4 rounded-lg text-gray-700 items-center align-middle p-6">
+        <img className="rounded-custom h-24 border bg-gray-300 w-24 object-cover " src={thumbnail} alt="" />
+        <div className="flex flex-col col-span-2 ">
+          <p className="font-bold text-xl text-gray-800 flex-grow leading-tight ">
             {title.length > 30 ? title.slice(0, 30) + '...' : title}
           </p>
           <p className="font-bold opacity-50 "> {id}</p>
