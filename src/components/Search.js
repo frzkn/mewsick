@@ -3,12 +3,11 @@ import logo from '../images/logo-alt.png'
 import Song from './Song'
 import axios from 'axios'
 import Loader from './Loader'
-import ReactJkMusicPlayer from 'react-jinke-music-player'
 import 'react-jinke-music-player/assets/index.css'
 
 let jsonp = require('jsonp')
 
-const Search = () => {
+const Search = ({ setAudioSRC, setSongInfo }) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([
     {
@@ -126,9 +125,13 @@ const Search = () => {
             Found {searchResults.length} results
           </h1>
         )}
-        {!loading && searchResults && searchResults.map((song) => <Song key={song.id} song={song} />)}
+        {!loading &&
+          searchResults &&
+          searchResults.map((song) => (
+            <Song key={song.id} song={song} setAudioSRC={setAudioSRC} setSongInfo={setSongInfo} />
+          ))}
       </section>
-      <ReactJkMusicPlayer
+      {/* <ReactJkMusicPlayer
         theme="light"
         autoPlay="false"
         audioLists={[
@@ -141,7 +144,7 @@ const Search = () => {
           },
         ]}
       />
-      />
+      /> */}
     </main>
   )
 }

@@ -26,17 +26,16 @@
 .rounded-custom-sm {
   border-radius: 11px;
 }
-.audio {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-color: #f1f3f4;
-  audio {
-    padding: 0;
-    margin: 0;
-    outline: none;
-    width: 100%;
-  }
+
+.color-purple-custom {
+  color: #3d3748;
+}
+
+.color-purple-custom-bg {
+  background-color: #3d3748;
+}
+
+.play-btn {
+  clip-path: polygon(50% 10%, 0 78%, 100% 78%);
+  transform: rotate(90deg);
 }
