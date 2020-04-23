@@ -64,8 +64,7 @@ const Music = ({ audioSRC, songInfo }) => {
               >
                 {console.log(`${songInfo.title}-mewsick.mp3`)}
                 <a
-                  href={`http://localhost:3001/download/?URL=${songInfo.id}`}
-                  alt="download"
+                  href={`http://localhost:3001/download/?URL=${songInfo.id}&title=${songInfo.title}`}
                   className="text-gray-700"
                 >
                   <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">

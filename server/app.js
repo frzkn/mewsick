@@ -80,9 +80,8 @@ app.get('/search', async (req, res) => {
 });
 
 app.get('/download', (req, res) => {
-    var URL = req.query.URL;
-    res.header('Content-Disposition', 'attachment; filename="video.mp3"');
-    ytdl(URL, {
+    res.header('Content-Disposition', `attachment; filename="${req.query.title}.mp3"`);
+    ytdl(req.query.URL, {
         format: 'mp3', filter: "audioonly"
     }).pipe(res);
 });
