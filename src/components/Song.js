@@ -1,23 +1,22 @@
 import React from 'react'
 import axios from 'axios'
-import { useState } from 'react'
-import { useEffect } from 'react'
 
-const Song = ({ song, setAudioSRC, songInfo, setSongInfo }) => {
-  const { title, thumbnail, duration, views, id } = song
+const Song = ({song, setAudioSRC, songInfo, setSongInfo}) => {
+  const {title, thumbnail, duration, views, id} = song
 
   const fetchSong = (id) => {
     axios
       .get(`http://localhost:3001/song?id=${encodeURI(id)}`)
       .then((result) => result.data)
       .then((data) => {
-        setAudioSRC(data)
-        setSongInfo({ title, thumbnail })
+        setAudioSRC(data);
+        setSongInfo({title, thumbnail, id})
       })
-  }
+  };
   return (
     <div>
-      <div className="grid grid-cols-4 bg-white border shadow max-w-xs md:max-w-xl mx-auto my-2 lg:my-4 rounded-lg text-gray-700 items-center align-middle overflow-hidden ">
+      <div
+        className="grid grid-cols-4 bg-white border shadow max-w-xs md:max-w-xl mx-auto my-2 lg:my-4 rounded-lg text-gray-700 items-center align-middle overflow-hidden ">
         <img
           className=" h-24 md:h-24 bg-gray-300 w-full object-cover border-r-8 border-pink-200 "
           src={thumbnail}
