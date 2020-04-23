@@ -57,6 +57,27 @@ const Music = ({ audioSRC, songInfo }) => {
                   <span className="block h-4 w-4 bg-gray-700 play-btn"></span>
                 )}
               </div>
+
+              <div
+                className="h-10 w-10 rounded-full bg-gray-100 text-center flex justify-center items-center hover:bg-gray-200 ml-2"
+                onClick={toggle}
+              >
+                {console.log(`${songInfo.title}-mewsick.mp3`)}
+                <a
+                  href={`data:${audioSRC}`}
+                  download={`${songInfo.title}-mewsick.mp3`}
+                  alt="download"
+                  className="text-gray-700"
+                >
+                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
+                    <path
+                      fillRule="evenodd"
+                      d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
