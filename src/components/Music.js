@@ -15,7 +15,7 @@ const Music = ({ audioSRC, songInfo }) => {
 
   React.useEffect(() => {
     return () => {
-      isPlaying(false)
+      if (isPlaying) setIsPlaying(false)
     }
   }, [])
 
@@ -45,7 +45,7 @@ const Music = ({ audioSRC, songInfo }) => {
             </div>
             <div className="controls ml-auto text-white flex justify-center items-center">
               <div
-                className="h-10 w-10 rounded-full bg-gray-100 text-center flex justify-center items-center hover:bg-gray-200"
+                className="h-10 w-10 rounded-full bg-gray-100 text-center flex justify-center items-center hover:bg-gray-200 "
                 onClick={toggle}
               >
                 {isPlaying ? (
@@ -58,11 +58,7 @@ const Music = ({ audioSRC, songInfo }) => {
                 )}
               </div>
 
-              <div
-                className="h-10 w-10 rounded-full bg-gray-100 text-center flex justify-center items-center hover:bg-gray-200 ml-2"
-                onClick={toggle}
-              >
-                {console.log(`${songInfo.title}-mewsick.mp3`)}
+              <div className="h-10 w-10 rounded-full bg-gray-100 text-center flex justify-center items-center hover:bg-gray-200 ml-2">
                 <a
                   href={`http://localhost:3001/download/?URL=${songInfo.id}&title=${songInfo.title}`}
                   className="text-gray-700"
