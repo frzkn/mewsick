@@ -29,6 +29,10 @@ const Music = () => {
     }
   }, [])
 
+  useEffect(() => {
+    setIsPlaying(true)
+  }, [audioSRC])
+
   // if (audioSRC.length === 0)
   if (audioSRC.length > 1)
     return (
