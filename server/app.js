@@ -80,10 +80,10 @@ app.get('/search', async (req, res) => {
 })
 
 app.get('/download', (req, res) => {
-  res.header('Content-Disposition', `attachment; filename="${req.query.title}-mewsick.mp3"`)
+  res.header('Content-Disposition', `attachment; filename="${req.query.title}-mewsick.mp3"`);
   ytdl(req.query.URL, {
-    format: 'mp3',
-    filter: 'audioonly',
+    quality: 'highestaudio',
+    filter: format => format.container === 'mp4'
   }).pipe(res)
 })
 
