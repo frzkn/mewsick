@@ -56,8 +56,8 @@ const Music = () => {
           <div className="mx-auto flex items-center h-full max-w-xs md:max-w-xl ">
             <img src={songInfo.thumbnail} alt="" className="rounded h-12 md:h-16 w-auto bg-gray-700 object-fit" />
             <div className=" ml-4 flex flex-col">
-              <p className="font-bold text-sm opacity-75 songinfo-title">{songInfo.title}</p>
-              <p className="  p-1  text-sm ">
+              <p className=" text-sm opacity-75 songinfo-title">{songInfo.title}</p>
+              <p className=" p-1  text-sm ">
                 <span className="bg-purple-400 rounded px-1 text-white border ">{`${Math.floor(
                   songProgressSeconds / 60
                 )}:${Math.round(songProgressSeconds % 60)}`}</span>{' '}

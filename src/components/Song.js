@@ -25,9 +25,9 @@ const Song = ({ song, setAudioSRC, songInfo, setSongInfo }) => {
         alt=""
       />
       <div className="flex flex-col col-span-3 ml-2 md:ml-4  mr-2 ">
-        <p className="font-bold  text-gray-800 flex-grow leading-tight songinfo-title mb-3">{title}</p>
-        <div className="font-bold text-white  items-center ">
-          <div className="inline-flex bg-purple-600 py-1 px-2 items-center rounded opacity-75 text-sm text-gray-100">
+        <p className="  text-gray-700 flex-grow leading-tight songinfo-title mb-3">{title}</p>
+        <div className="font-bold text-gray-800 ">
+          <div className="inline-flex  px-2 items-center rounded-full text-sm text-gray-700 border">
             <svg fill="currentColor" viewBox="0 0 20 20" className="h-4 w-4">
               <path
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
@@ -35,7 +35,7 @@ const Song = ({ song, setAudioSRC, songInfo, setSongInfo }) => {
                 fillRule="evenodd"
               ></path>
             </svg>
-            <p className=" ml-2">{duration}</p>
+            <p className=" ml-2 text-md ">{duration}</p>
           </div>
         </div>
         {/* <div className="font-bold opacity-50 "> {id}</div> */}
