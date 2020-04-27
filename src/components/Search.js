@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import logo from '../images/logo-alt.png'
 import Song from './Song'
 import axios from 'axios'
 import Loader from './Loader'
-import 'react-jinke-music-player/assets/index.css'
+import { SongContext } from '../context/SongContext'
+import { AudioContext } from '../context/AudioContext'
 
 let jsonp = require('jsonp')
 
-const Search = ({ setAudioSRC, setSongInfo }) => {
+const Search = () => {
+  const { setSongInfo } = useContext(SongContext)
+  const { setAudioSRC } = useContext(AudioContext)
+
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([
     {
-      title: 'Tame Impala - Feels Like We Only Go Backwards (Official Video)',
+      title: 'OnePlus 8 Pro - Lead with Speed',
       thumbnail:
-        'https://i.ytimg.com/vi/wycjnCCgUes/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCKZoPqsukMB-aXNXFxMcsaol7H6w',
-      duration: '3:21',
-      views: 112189485,
-      id: 'wycjnCCgUes',
+        'https://i.ytimg.com/vi/sfQjKndZbZg/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAnv6YvJJHuIikV_RtiSb9AS1S39w',
+      duration: '1:01',
+      views: 236036,
+      id: 'sfQjKndZbZg',
     },
     {
       title: 'The Less I Know The Better - Tame Impala Lyrics',
@@ -58,6 +62,7 @@ const Search = ({ setAudioSRC, setSongInfo }) => {
         .get(`http://localhost:3001/search?q=${encodeURI(searchQuery)}`)
         .then((res) => res.data)
         .then((data) => {
+          console.log(data)
           setSearchResults(data)
           setLoading(false)
         })

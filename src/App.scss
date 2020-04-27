@@ -35,6 +35,12 @@
   background-color: #3d3748;
 }
 
+.songinfo-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .play-btn {
   clip-path: polygon(50% 10%, 0 78%, 100% 78%);
   transform: rotate(90deg);

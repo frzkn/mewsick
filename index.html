@@ -1,117 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-</head>
-<body>
-
-<body>
-<audio id="blast" src="https://r8---sn-q8vpn-cvhz.googlevideo.com/videoplayback?expire=1586736877&ei=jVqTXo78HrOL3LUP_qexgAs&ip=103.51.234.159&id=o-ANNXEe0V6fHsJxT5DFSjCn787LafTtse4NEg-Ot4k2vD&itag=140&source=youtube&requiressl=yes&mh=iw&mm=31%2C29&mn=sn-q8vpn-cvhz%2Csn-cvh7kney&ms=au%2Crdu&mv=m&mvi=7&pcm2cms=yes&pl=24&gcr=in&initcwndbps=616250&vprv=1&mime=audio%2Fmp4&gir=yes&clen=3238574&dur=200.063&lmt=1575011845678447&mt=1586715211&fvip=4&keepalive=yes&c=WEB&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=ALrAebAwRQIhALBItyoLXnoiuOF1J7mqgPSuTsGaDtBv8DsMYNiem4psAiAraEqUCbxpB1Hi8Ml0kb0RURddiwCl2YSylTNT49qPeQ%3D%3D&ratebypass=yes&sig=AJpPlLswRQIhAMw9e16LxyxqPujaV3bbzh0VW6U_PfrpGSQN8Ba95-96AiB4TrXa72Gn5iNWRKSYjeurnhOO7SxgjSN7-i_hCPCGtw%3D%3D" controls
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <body>
+      <!-- <audio id="blast" src="https://r8---sn-q8vpn-cvhz.googlevideo.com/videoplayback?expire=1586736877&ei=jVqTXo78HrOL3LUP_qexgAs&ip=103.51.234.159&id=o-ANNXEe0V6fHsJxT5DFSjCn787LafTtse4NEg-Ot4k2vD&itag=140&source=youtube&requiressl=yes&mh=iw&mm=31%2C29&mn=sn-q8vpn-cvhz%2Csn-cvh7kney&ms=au%2Crdu&mv=m&mvi=7&pcm2cms=yes&pl=24&gcr=in&initcwndbps=616250&vprv=1&mime=audio%2Fmp4&gir=yes&clen=3238574&dur=200.063&lmt=1575011845678447&mt=1586715211&fvip=4&keepalive=yes&c=WEB&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=ALrAebAwRQIhALBItyoLXnoiuOF1J7mqgPSuTsGaDtBv8DsMYNiem4psAiAraEqUCbxpB1Hi8Ml0kb0RURddiwCl2YSylTNT49qPeQ%3D%3D&ratebypass=yes&sig=AJpPlLswRQIhAMw9e16LxyxqPujaV3bbzh0VW6U_PfrpGSQN8Ba95-96AiB4TrXa72Gn5iNWRKSYjeurnhOO7SxgjSN7-i_hCPCGtw%3D%3D" controls
 "loop" autoplay></audio>
 <br/>
 <button class="blasterTrigger">Play</button>
-<button class="blasterTrigger2">Stop</button>
+<button class="blasterTrigger2">Stop</button> -->
+    </body>
 
+    <script>
+      $(function () {
+        $('#button').on('click', function () {
+          trackDownload()
+          alert($(this).parents('a').attr('href'))
+          window.location = $(this).parents('a').attr('href')
+        })
+      })
 
-</body>
-
-<script>
-  $(function () {
-    $('#button').on('click', function () {
-      trackDownload();
-      alert($(this).parents('a').attr('href'));
-      window.location = $(this).parents('a').attr('href');
-    });
-  });
-
-  function trackDownload() {
-    alert('Track is getting download');
-  }
-  link = "https://r8---sn-q8vpn-cvhz.googlevideo.com/videoplayback?expire=1586736877&ei=jVqTXo78HrOL3LUP_qexgAs&ip=103.51.234.159&id=o-ANNXEe0V6fHsJxT5DFSjCn787LafTtse4NEg-Ot4k2vD&itag=140&source=youtube&requiressl=yes&mh=iw&mm=31%2C29&mn=sn-q8vpn-cvhz%2Csn-cvh7kney&ms=au%2Crdu&mv=m&mvi=7&pcm2cms=yes&pl=24&gcr=in&initcwndbps=616250&vprv=1&mime=audio%2Fmp4&gir=yes&clen=3238574&dur=200.063&lmt=1575011845678447&mt=1586715211&fvip=4&keepalive=yes&c=WEB&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=ALrAebAwRQIhALBItyoLXnoiuOF1J7mqgPSuTsGaDtBv8DsMYNiem4psAiAraEqUCbxpB1Hi8Ml0kb0RURddiwCl2YSylTNT49qPeQ%3D%3D&ratebypass=yes&sig=AJpPlLswRQIhAMw9e16LxyxqPujaV3bbzh0VW6U_PfrpGSQN8Ba95-96AiB4TrXa72Gn5iNWRKSYjeurnhOO7SxgjSN7-i_hCPCGtw%3D%3D";
-  /*///////////////////////////////////////////////////////////////////*/
-  /* Simple HTML5 Audio player                                         */
-  /* With button Play/Pause                                            */
-  /* To hide the player, just remove `controls` attribute or quote it  */
-  /*///////////////////////////////////////////////////////////////////*/
-
-  // forked from http://jsfiddle.net/5r02pf9u/
-  // some links:
-  // http://html5tutorial.info/html5-audio.php
-  // http://html5tutorial.info/html5-video.php
-  //
-  // some links:
-  // https://html.spec.whatwg.org/#audio
-  // http://www.w3.org/html/wg/drafts/html/master/semantics.html#audio
-
-  // http://www.position-absolute.com/articles/introduction-to-the-html5-audio-tag-javascript-manipulation/
-  // also interesting comments:
-  //Audio.prototype.stop = function () {
-  //    this.pause();
-  //    this.currentTime = 0;
-  //}
-  // 'play', 'pause', 'play at 35 secondes', 'Volume to 0', 'Volume open'
-  // http://www.position-relative.net/creation/audiotag/
-
-  // pure JS only
-  //var blasterTrigger = document.querySelector(".blasterTrigger");
-  //blasterTrigger.addEventListener("click", function () {
-  //    document.getElementById("blast").play();
-
-  // JQuery
-  // var blast = document.querySelector("#blast");
-
-  // Play/Pause Button
-  $('.blasterTrigger').click(function () {
-    $("#blast").each(function () {
-      // html5 audio player - jquery toggle click play/pause?
-      // http://stackoverflow.com/a/2988130
-      if (this.paused === false) {
-        this.pause();
-        $('.blasterTrigger').text('Play');
-        //        alert('music paused');
-      } else {
-        this.play();
-        $('.blasterTrigger').text('||');
-        //        alert('music playing');
+      function trackDownload() {
+        alert('Track is getting download')
       }
-    });
+      link =
+        'https://r8---sn-q8vpn-cvhz.googlevideo.com/videoplayback?expire=1586736877&ei=jVqTXo78HrOL3LUP_qexgAs&ip=103.51.234.159&id=o-ANNXEe0V6fHsJxT5DFSjCn787LafTtse4NEg-Ot4k2vD&itag=140&source=youtube&requiressl=yes&mh=iw&mm=31%2C29&mn=sn-q8vpn-cvhz%2Csn-cvh7kney&ms=au%2Crdu&mv=m&mvi=7&pcm2cms=yes&pl=24&gcr=in&initcwndbps=616250&vprv=1&mime=audio%2Fmp4&gir=yes&clen=3238574&dur=200.063&lmt=1575011845678447&mt=1586715211&fvip=4&keepalive=yes&c=WEB&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=ALrAebAwRQIhALBItyoLXnoiuOF1J7mqgPSuTsGaDtBv8DsMYNiem4psAiAraEqUCbxpB1Hi8Ml0kb0RURddiwCl2YSylTNT49qPeQ%3D%3D&ratebypass=yes&sig=AJpPlLswRQIhAMw9e16LxyxqPujaV3bbzh0VW6U_PfrpGSQN8Ba95-96AiB4TrXa72Gn5iNWRKSYjeurnhOO7SxgjSN7-i_hCPCGtw%3D%3D'
+      /*///////////////////////////////////////////////////////////////////*/
+      /* Simple HTML5 Audio player                                         */
+      /* With button Play/Pause                                            */
+      /* To hide the player, just remove `controls` attribute or quote it  */
+      /*///////////////////////////////////////////////////////////////////*/
 
-  });
+      // forked from http://jsfiddle.net/5r02pf9u/
+      // some links:
+      // http://html5tutorial.info/html5-audio.php
+      // http://html5tutorial.info/html5-video.php
+      //
+      // some links:
+      // https://html.spec.whatwg.org/#audio
+      // http://www.w3.org/html/wg/drafts/html/master/semantics.html#audio
 
-  // Play/Stop button ...
-  // not sure how to use the following function:
-  Audio.prototype.stop = function () {
-    this.pause();
-    this.currentTime = 0;
-  }
+      // http://www.position-absolute.com/articles/introduction-to-the-html5-audio-tag-javascript-manipulation/
+      // also interesting comments:
+      //Audio.prototype.stop = function () {
+      //    this.pause();
+      //    this.currentTime = 0;
+      //}
+      // 'play', 'pause', 'play at 35 secondes', 'Volume to 0', 'Volume open'
+      // http://www.position-relative.net/creation/audiotag/
 
-  // ... Play/Stop button
-  $('.blasterTrigger2').click(function () {
-    $("#blast").each(function () {
-      // html5 audio player - jquery toggle click play/pause?
-      // http://stackoverflow.com/a/2988130
-      if (this.paused === false) {
-        this.pause();
-        //this.currentTime = 0;
-        $('.blasterTrigger2').text('Play');
-        //        alert('music paused');
-      } else {
-        this.play();
-        $('.blasterTrigger2').text('Stop');
-        //        alert('music playing');
+      // pure JS only
+      //var blasterTrigger = document.querySelector(".blasterTrigger");
+      //blasterTrigger.addEventListener("click", function () {
+      //    document.getElementById("blast").play();
+
+      // JQuery
+      // var blast = document.querySelector("#blast");
+
+      // Play/Pause Button
+      $('.blasterTrigger').click(function () {
+        $('#blast').each(function () {
+          // html5 audio player - jquery toggle click play/pause?
+          // http://stackoverflow.com/a/2988130
+          if (this.paused === false) {
+            this.pause()
+            $('.blasterTrigger').text('Play')
+            //        alert('music paused');
+          } else {
+            this.play()
+            $('.blasterTrigger').text('||')
+            //        alert('music playing');
+          }
+        })
+      })
+
+      // Play/Stop button ...
+      // not sure how to use the following function:
+      Audio.prototype.stop = function () {
+        this.pause()
+        this.currentTime = 0
       }
-    });
 
-  });
+      // ... Play/Stop button
+      $('.blasterTrigger2').click(function () {
+        $('#blast').each(function () {
+          // html5 audio player - jquery toggle click play/pause?
+          // http://stackoverflow.com/a/2988130
+          if (this.paused === false) {
+            this.pause()
+            //this.currentTime = 0;
+            $('.blasterTrigger2').text('Play')
+            //        alert('music paused');
+          } else {
+            this.play()
+            $('.blasterTrigger2').text('Stop')
+            //        alert('music playing');
+          }
+        })
+      })
 
-  /* // auto-play when page is loaded.
+      /* // auto-play when page is loaded.
   document.addEventListener("DOMContentLoaded", function (event) {
       document.getElementById("blast").play();
   });
   */
-</script>
-</body>
+    </script>
+  </body>
 </html>

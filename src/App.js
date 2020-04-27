@@ -6,9 +6,13 @@ import Search from './components/Search'
 import Landing from './components/Landing'
 import Music from './components/Music'
 
+import { AudioContext } from './context/AudioContext'
+import { SongContext } from './context/SongContext'
+
 import './App.scss'
 
 function App() {
+  // const AudioContext
   const [audioSRC, setAudioSRC] = useState('')
   const [songInfo, setSongInfo] = useState({ title: '', thumbnail: '' })
   return (
@@ -17,8 +21,12 @@ function App() {
         <Landing />
       </Route>
       <Route path="/search">
-        <Search setAudioSRC={setAudioSRC} setSongInfo={setSongInfo} />
-        <Music audioSRC={audioSRC} songInfo={songInfo} />
+        <AudioContext.Provider value={{ audioSRC, setAudioSRC }}>
+          <SongContext.Provider value={{ songInfo, setSongInfo }}>
+            <Search />
+            <Music />
+          </SongContext.Provider>
+        </AudioContext.Provider>
       </Route>
     </Switch>
   )
