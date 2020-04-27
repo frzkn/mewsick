@@ -3,10 +3,11 @@ import axios from 'axios'
 
 const Song = ({ song, setAudioSRC, songInfo, setSongInfo }) => {
   const { title, thumbnail, duration, views, id } = song
+  const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || `herokusomething`
 
   const fetchSong = (id) => {
     axios
-      .get(`http://localhost:3001/song?id=${encodeURI(id)}`)
+      .get(`${API_ENDPOINT}/song?id=${encodeURI(id)}`)
       .then((result) => result.data)
       .then((data) => {
         console.log(data)

@@ -9,6 +9,8 @@ import { AudioContext } from '../context/AudioContext'
 let jsonp = require('jsonp')
 
 const Search = () => {
+  const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || `https://asdf.herokuapp.com`
+
   const { setSongInfo } = useContext(SongContext)
   const { setAudioSRC } = useContext(AudioContext)
 
@@ -59,7 +61,7 @@ const Search = () => {
     if ((!loading, searchQuery)) {
       setLoading(true)
       axios
-        .get(`http://localhost:3001/search?q=${encodeURI(searchQuery)}`)
+        .get(`${API_ENDPOINT}/search?q=${encodeURI(searchQuery)}`)
         .then((res) => res.data)
         .then((data) => {
           console.log(data)
