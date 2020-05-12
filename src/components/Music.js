@@ -96,10 +96,7 @@ const Music = () => {
               </div>
 
               <div className="h-10 w-10 rounded-full bg-gray-100 text-center flex justify-center items-center hover:bg-gray-200 ml-2 border">
-                <a
-                  href={`http://localhost:3001/download/?URL=${songInfo.id}&title=${songInfo.title}`}
-                  className="text-gray-600"
-                >
+                <a href={`/download/?URL=${songInfo.id}&title=${songInfo.title}`} className="text-gray-600">
                   <svg fill="currentColor" viewBox="0 0 20 20" className="h-6 w-6">
                     <path
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z"
