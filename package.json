@@ -24,7 +24,7 @@
     "ytsr": "^0.1.12"
   },
   "scripts": {
-    "start": "yarn server",
+    "start": "node server/app.js",
     "start:dev": "yarn watch:css && react-scripts start",
     "build": "yarn build:css && react-scripts build",
     "test": "react-scripts test",
