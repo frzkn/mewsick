@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.7.6",
+    "postcss-cli": "^7.1.1",
     "tailwindcss": "^1.2.0"
   }
 }
