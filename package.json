@@ -28,8 +28,8 @@
     "start": "yarn watch:css && react-scripts start",
     "build": "yarn build:css && react-scripts build",
     "test": "react-scripts test",
-    "watch:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
-    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
+    "watch:css": "npx postcss src/styles/tailwind.css -o src/styles/main.css",
+    "build:css": "npx postcss src/styles/tailwind.css -o src/styles/main.css",
     "eject": "react-scripts eject",
     "server": "nodemon server/app.js",
     "cors": "nodemon cors/server.js",
@@ -52,7 +52,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.7.6",
-    "postcss-cli": "^7.1.0",
     "tailwindcss": "^1.2.0"
   }
 }
