@@ -43,6 +43,7 @@ const Search = () => {
     e.preventDefault()
     setSearchSuggestions([])
     if ((!loading, searchQuery)) {
+      setSearchSuggestions([])
       setLoading(true)
       axios
         .get(`${API_ENDPOINT}/api/search?q=${encodeURI(searchQuery)}`)
@@ -68,7 +69,7 @@ const Search = () => {
             <span className="px-2 text-xs font-bold text-white bg-red-300 rounded badge"> BETA </span>
           </Link>
         </div>
-        <div className="z-10 flex flex-col w-full max-w-xs px-4 py-2 text-gray-700 bg-white border rounded-lg shadow search-absolute md:max-w-xl ">
+        <div className="z-10 flex flex-col w-full max-w-sm px-4 py-2 text-gray-700 bg-white border rounded-lg shadow search-absolute md:max-w-xl ">
           <div className="flex items-center ">
             <svg
               fill="none"
@@ -99,7 +100,7 @@ const Search = () => {
                     className="p-1 break-words hover:text-black"
                     onClick={(e) => {
                       setSearchQuery(e.target.textContent)
-                      setSearchSuggestions([])
+                      fetchSongs(e)
                     }}
                   >
                     {suggestion}
@@ -112,7 +113,7 @@ const Search = () => {
       <section className="container m-8 mx-auto mb-64 ">
         {loading && <Loader />}
         {!loading && searchResults.length > 1 && (
-          <h1 className="container max-w-xs mx-auto mt-12 font-bold text-gray-800 lg:max-w-xl md:max-w-xl">
+          <h1 className="container max-w-sm mx-auto mt-12 font-bold text-gray-800 lg:max-w-xl md:max-w-xl">
             Found {searchResults.length} results
           </h1>
         )}
