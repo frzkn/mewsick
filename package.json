@@ -14,10 +14,9 @@
     "express-rate-limit": "^5.0.0",
     "jsonp": "^0.2.1",
     "node-sass": "^4.13.1",
+    "postcss": "^7.0.30",
     "react": "^16.13.1",
-    "react-cool-music-player": "^1.0.6",
     "react-dom": "^16.13.1",
-    "react-jinke-music-player": "^4.11.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "urllib": "^2.34.2",
@@ -25,15 +24,16 @@
     "ytsr": "^0.1.12"
   },
   "scripts": {
-    "start": "yarn watch:css && react-scripts start",
+    "start": "node server/app.js",
+    "start:dev": "yarn watch:css && react-scripts start",
     "build": "yarn build:css && react-scripts build",
     "test": "react-scripts test",
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
     "eject": "react-scripts eject",
-    "server": "nodemon server/app.js",
-    "cors": "nodemon cors/server.js",
-    "heroku:build": "yarn build && yarn server"
+    "server": "node server/app.js",
+    "server:dev": "nodemon server/app.js",
+    "cors": "nodemon cors/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.7.6",
-    "postcss-cli": "^7.1.0",
+    "postcss-cli": "^7.1.1",
     "tailwindcss": "^1.2.0"
   }
 }
