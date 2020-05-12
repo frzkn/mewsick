@@ -24,7 +24,8 @@
     "ytsr": "^0.1.12"
   },
   "scripts": {
-    "start": "yarn watch:css && react-scripts start",
+    "start": "yarn build && yarn server",
+    "start:dev": "yarn watch:css && react-scripts start",
     "build": "yarn build:css && react-scripts build",
     "test": "react-scripts test",
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
@@ -32,8 +33,7 @@
     "eject": "react-scripts eject",
     "server": "node server/app.js",
     "server:dev": "nodemon server/app.js",
-    "cors": "nodemon cors/server.js",
-    "heroku:build": "yarn build && yarn server"
+    "cors": "nodemon cors/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
