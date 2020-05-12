@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../images/logo-alt.png'
 import Song from './Song'
 import axios from 'axios'
@@ -77,14 +78,14 @@ const Search = () => {
 
   return (
     <main>
-      <header className="main-search flex bg-gray-800 p-16 relative border-b-4 border-red-200">
+      <header className="relative flex p-16 bg-gray-800 border-b-4 border-red-200 main-search">
         <div className="container mx-auto ">
-          <div className="flex items-center justify-center">
-            <img className="mr-4  h-auto w-auto logo" src={logo} alt="" />
-            <span className="badge bg-red-300 text-white text-xs px-2  rounded font-bold"> BETA </span>
-          </div>
+          <Link className="flex items-center justify-center" to="/">
+            <img className="w-auto h-auto mr-4 logo" src={logo} alt="" />
+            <span className="px-2 text-xs font-bold text-white bg-red-300 rounded badge"> BETA </span>
+          </Link>
         </div>
-        <div className="border search-absolute shadow py-2 px-4 z-10 bg-white rounded-lg  text-gray-700 flex flex-col w-full max-w-xs md:max-w-xl  ">
+        <div className="z-10 flex flex-col w-full max-w-xs px-4 py-2 text-gray-700 bg-white border rounded-lg shadow search-absolute md:max-w-xl ">
           <div className="flex items-center ">
             <svg
               fill="none"
@@ -99,7 +100,7 @@ const Search = () => {
             </svg>
             <form onSubmit={fetchSongs} className="w-full">
               <input
-                className="outline-none w-full "
+                className="w-full outline-none "
                 type="text"
                 value={searchQuery}
                 onChange={handleSearchChange}
@@ -112,7 +113,7 @@ const Search = () => {
               <ul>
                 {searchSuggestions.map((suggestion) => (
                   <li
-                    className="p-1 hover:text-black break-words"
+                    className="p-1 break-words hover:text-black"
                     onClick={(e) => {
                       setSearchQuery(e.target.textContent)
                       setSearchSuggestions([])
@@ -125,10 +126,10 @@ const Search = () => {
             ]}
         </div>
       </header>
-      <section className="container mx-auto m-8 mb-64 ">
+      <section className="container m-8 mx-auto mb-64 ">
         {loading && <Loader />}
         {!loading && searchResults.length > 1 && (
-          <h1 className=" container lg:max-w-xl  mx-auto mt-12 font-bold text-gray-800 max-w-xs md:max-w-xl ">
+          <h1 className="container max-w-xs mx-auto mt-12 font-bold text-gray-800 lg:max-w-xl md:max-w-xl">
             Found {searchResults.length} results
           </h1>
         )}
