@@ -3,15 +3,16 @@ const express = require('express')
 const cors = require('cors')
 const rateLimit = require('express-rate-limit')
 const ytsr = require('ytsr')
+const path = require('path')
 
 const app = express()
 
-const limiter = rateLimit({
-  windowMs: 60 * 1000, // 10 minutes 20 request
-  max: 10, // limit each IP to 100 requests per windowMs
-})
+// const limiter = rateLimit({
+//   windowMs: 60 * 1000, // 10 minutes 20 request
+//   max: 10, // limit each IP to 100 requests per windowMs
+// })
 
-app.use(limiter)
+// app.use(limiter)
 const port = 3001
 
 let allowedOrigins = ['http://localhost:' + 3000]
@@ -33,11 +34,14 @@ app.use(
 )
 app.options('*', cors())
 
-app.get('/', (req, res) => {
+// Static files
+app.use(express.static(path.join(__dirname, '../build')))
+
+app.get('/api', (req, res) => {
   res.send('Welcome to mewsick api')
 })
 
-app.get('/song', async (req, res) =>
+app.get('/api/song', async (req, res) =>
   ytdl
     .getInfo(req.query.id)
     .then((info) => {
@@ -48,7 +52,7 @@ app.get('/song', async (req, res) =>
     .catch((err) => res.status(400).json(err.message))
 )
 
-app.get('/search', async (req, res) => {
+app.get('/api/search', async (req, res) => {
   let filter
   ytsr.getFilters(req.query.q, function (err, filters) {
     if (err) throw err
@@ -79,12 +83,16 @@ app.get('/search', async (req, res) => {
   })
 })
 
-app.get('/download', (req, res) => {
-  res.header('Content-Disposition', `attachment; filename="${req.query.title}-mewsick.mp3"`);
+app.get('/api/download', (req, res) => {
+  res.header('Content-Disposition', `attachment; filename="${req.query.title}-mewsick.mp3"`)
   ytdl(req.query.URL, {
     quality: 'highestaudio',
-    filter: format => format.container === 'mp4'
+    filter: (format) => format.container === 'mp4',
   }).pipe(res)
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '../build/index.html'))
 })
 
 app.listen(process.env.PORT || port, () => console.log(`Server is listening on port ${port}.`))

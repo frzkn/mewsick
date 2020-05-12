@@ -10,30 +10,13 @@ import { AudioContext } from '../context/AudioContext'
 let jsonp = require('jsonp')
 
 const Search = () => {
-  const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || `https://asdf.herokuapp.com`
+  const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || ``
 
   const { setSongInfo } = useContext(SongContext)
   const { setAudioSRC } = useContext(AudioContext)
 
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState([
-    {
-      title: 'OnePlus 8 Pro - Lead with Speed',
-      thumbnail:
-        'https://i.ytimg.com/vi/sfQjKndZbZg/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAnv6YvJJHuIikV_RtiSb9AS1S39w',
-      duration: '1:01',
-      views: 236036,
-      id: 'sfQjKndZbZg',
-    },
-    {
-      title: 'The Less I Know The Better - Tame Impala Lyrics',
-      thumbnail:
-        'https://i.ytimg.com/vi/O2lzmpEs29M/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCTcCJQMZnH5bR3l3e9HSHItAhI0A',
-      duration: '3:36',
-      views: 44171963,
-      id: 'O2lzmpEs29M',
-    },
-  ])
+  const [searchResults, setSearchResults] = useState([])
 
   const [playlist, setPlaylist] = useState([])
   const [searchSuggestions, setSearchSuggestions] = useState([])
@@ -62,7 +45,7 @@ const Search = () => {
     if ((!loading, searchQuery)) {
       setLoading(true)
       axios
-        .get(`${API_ENDPOINT}/search?q=${encodeURI(searchQuery)}`)
+        .get(`${API_ENDPOINT}/api/search?q=${encodeURI(searchQuery)}`)
         .then((res) => res.data)
         .then((data) => {
           console.log(data)

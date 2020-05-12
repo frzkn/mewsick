@@ -32,7 +32,8 @@
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
     "eject": "react-scripts eject",
     "server": "nodemon server/app.js",
-    "cors": "nodemon cors/server.js"
+    "cors": "nodemon cors/server.js",
+    "heroku:build": "yarn build && yarn server"
   },
   "eslintConfig": {
     "extends": "react-app"
