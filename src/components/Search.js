@@ -110,10 +110,10 @@ const Search = () => {
             ]}
         </div>
       </header>
-      <section className="container m-8 mx-auto mb-64 ">
+      <section className="container m-8 mx-auto mb-64 px-2">
         {loading && <Loader />}
         {!loading && searchResults.length > 1 && (
-          <h1 className="container max-w-sm mx-auto mt-12 font-bold text-gray-800 lg:max-w-xl md:max-w-xl">
+          <h1 className="container max-w-sm mx-auto mt-12 font-bold text-gray-800 lg:max-w-xl md:max-w-xl px-2">
             Found {searchResults.length} results
           </h1>
         )}

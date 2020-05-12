@@ -17,14 +17,10 @@ const Song = ({ song, setAudioSRC, songInfo, setSongInfo }) => {
   }
   return (
     <div
-      className="grid items-center max-w-xs grid-cols-4 mx-auto my-2 overflow-hidden text-gray-700 align-middle transition duration-100 bg-white border rounded-lg shadow cursor-pointer md:max-w-xl lg:my-4 hover:bg-gray-100 hover:shadow-lg"
+      className="grid items-center max-w-sm grid-cols-4 mx-auto my-2 overflow-hidden text-gray-700 align-middle transition duration-100 bg-white border rounded-lg shadow cursor-pointer md:max-w-xl lg:my-4 hover:bg-gray-100 hover:shadow-lg"
       onClick={() => fetchSong(id)}
     >
-      <img
-        className="object-cover w-full h-24 bg-gray-300 border-r-8 border-pink-200 md:h-24"
-        src={thumbnail}
-        alt=""
-      />
+      <img className="object-cover w-full h-24 bg-gray-300 border-r-8 border-pink-200 md:h-24" src={thumbnail} alt="" />
       <div className="flex flex-col col-span-3 ml-2 mr-2 md:ml-4 ">
         <p className="flex-grow mb-3 leading-tight text-gray-700 songinfo-title">{title}</p>
         <div className="font-bold text-gray-800 ">
