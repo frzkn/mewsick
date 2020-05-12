@@ -99,7 +99,7 @@ const Music = () => {
 
               <div className="h-10 w-10 rounded-full bg-gray-100 text-center flex justify-center items-center hover:bg-gray-200 ml-2 border">
                 <a
-                  href={`${API_ENDPOINT}/download/?URL=${songInfo.id}&title=${songInfo.title}`}
+                  href={`${API_ENDPOINT}/api/download/?URL=${songInfo.id}&title=${songInfo.title}`}
                   className="text-gray-600"
                 >
                   <svg fill="currentColor" viewBox="0 0 20 20" className="h-6 w-6">
