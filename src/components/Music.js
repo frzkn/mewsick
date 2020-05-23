@@ -37,6 +37,7 @@ const Music = () => {
   useEffect(() => {
     setIsPlaying(true)
     setDuration(audioRef.duration)
+    setLeft(0)
   }, [audioSRC])
 
   useEffect(() => {
