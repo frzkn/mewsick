@@ -63,22 +63,16 @@ const Music = () => {
           onTimeUpdate={(e) => setSongProgressSeconds(audioRef.currentTime)}
         ></audio>
         <div className="fixed bottom-0 w-screen py-2 bg-white border">
-          <div className="flex items-center h-full max-w-xs mx-auto md:max-w-xl ">
+          <div className="flex items-center justify-between h-full max-w-xs mx-auto md:max-w-xl">
             <img
               src={songInfo.thumbnail || 'https://unsplash.it/400/400'}
               alt=""
               className="w-auto h-12 bg-gray-700 rounded md:h-16 object-fit"
             />
             <div className="flex flex-col ml-4 ">
-              <p className="text-sm opacity-75 songinfo-title">{songInfo.title || 'Born to love u'}</p>
-              <p className="p-1 text-sm ">
-                <span className="px-1 ">{`${Math.floor(songProgressSeconds / 60)}:${Math.round(
-                  songProgressSeconds % 60
-                )}`}</span>{' '}
-                /<span className="px-1 text-white text-gray-700 rounded ">{songInfo.duration}</span>
-              </p>
+              <p className="text-sm text-center opacity-75 songinfo-title">{songInfo.title || 'Born to love u'}</p>
             </div>
-            <div className="flex items-center justify-center ml-auto text-white controls">
+            <div className="flex items-center justify-center text-white ">
               <div
                 className="flex items-center justify-center w-10 h-10 text-center text-gray-600 bg-gray-100 border rounded-full hover:bg-gray-200"
                 onClick={toggle}
@@ -141,6 +135,13 @@ const Music = () => {
             <span className="absolute w-full h-full bg-white border" style={{ position: 'absolute', left: `${left}%` }}>
               {/* <span className="w-3 h-3 bg-black border rounded-full"></span> */}
             </span>
+          </div>
+
+          <div className="flex justify-between max-w-xs mx-auto text-xs md:max-w-xl ">
+            <span className="px-1 ">{`${Math.floor(songProgressSeconds / 60)}:${Math.round(
+              songProgressSeconds % 60
+            )}`}</span>{' '}
+            <span className="px-1 text-white text-gray-700 rounded ">{songInfo.duration}</span>
           </div>
         </div>
       </div>
