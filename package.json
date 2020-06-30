@@ -3,25 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.3",
+    "@testing-library/user-event": "^12.0.11",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "conversions": "^1.5.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-rate-limit": "^5.0.0",
+    "express-rate-limit": "^5.1.3",
     "jsonp": "^0.2.1",
-    "node-sass": "^4.13.1",
-    "postcss": "^7.0.30",
+    "node-sass": "^4.14.1",
+    "postcss": "^7.0.32",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "urllib": "^2.34.2",
-    "ytdl-core": "^2.0.1",
-    "ytsr": "^0.1.12"
+    "urllib": "^2.36.1",
+    "ytdl-core": "^2.1.7",
+    "ytsr": "^0.1.15"
   },
   "scripts": {
     "start": "node server/app.js",
@@ -51,9 +51,9 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.4",
     "postcss-cli": "^7.1.1",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.4.6"
   },
   "license": "MIT"
 }
