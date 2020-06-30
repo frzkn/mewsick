@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
+import Loader from './Loader'
 
 const Song = ({ song, setAudioSRC, songInfo, setSongInfo }) => {
   const { title, thumbnail, duration, views, id } = song
+  const [clicked, setClicked] = useState(false)
   const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || ``
 
   const fetchSong = (id) => {
+    setClicked(true)
     axios
       .get(`${API_ENDPOINT}/api/song?id=${encodeURI(id)}`)
       .then((result) => result.data)
@@ -13,11 +16,17 @@ const Song = ({ song, setAudioSRC, songInfo, setSongInfo }) => {
         console.log(data)
         setAudioSRC(data)
         setSongInfo({ title, thumbnail, id, duration })
+        setClicked(false)
+      })
+      .catch((err) => {
+        setClicked(false)
+        console.log('Error')
+        alert('Error fetching song')
       })
   }
   return (
     <div
-      className="grid items-center max-w-sm grid-cols-4 mx-auto my-2 overflow-hidden text-gray-700 align-middle transition duration-100 bg-white border rounded-lg shadow cursor-pointer md:max-w-xl lg:my-4 hover:bg-gray-100 hover:shadow-lg"
+      className="relative grid items-center max-w-sm grid-cols-4 mx-auto my-2 overflow-hidden text-gray-700 align-middle transition duration-100 bg-white border rounded-lg shadow cursor-pointer md:max-w-xl lg:my-4 hover:bg-gray-100 hover:shadow-lg"
       onClick={() => fetchSong(id)}
     >
       <img className="object-cover w-full h-24 bg-gray-300 border-r-8 border-pink-200 md:h-24" src={thumbnail} alt="" />
@@ -35,8 +44,11 @@ const Song = ({ song, setAudioSRC, songInfo, setSongInfo }) => {
             <p className="ml-2 text-md">{duration}</p>
           </div>
         </div>
-        {/* <div className="font-bold opacity-50 "> {id}</div> */}
-        {/* <p className="font-bold opacity-50 "> {views}</p> */}
+        {clicked && (
+          <div className="absolute right-0 mr-2 transform scale-50">
+            <Loader />
+          </div>
+        )}
       </div>
     </div>
   )

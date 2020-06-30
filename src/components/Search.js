@@ -110,10 +110,14 @@ const Search = () => {
             ]}
         </div>
       </header>
-      <section className="container m-8 mx-auto mb-64 px-2">
-        {loading && <Loader />}
+      <section className="container px-2 m-8 mx-auto mb-64">
+        {loading && (
+          <div className="flex items-center justify-center transform translate-y-4 opacity-75">
+            <Loader />{' '}
+          </div>
+        )}
         {!loading && searchResults.length > 1 && (
-          <h1 className="container max-w-sm mx-auto mt-12 font-bold text-gray-800 lg:max-w-xl md:max-w-xl px-2">
+          <h1 className="container max-w-sm px-2 mx-auto mt-12 font-bold text-gray-800 lg:max-w-xl md:max-w-xl">
             Found {searchResults.length} results
           </h1>
         )}
@@ -123,20 +127,6 @@ const Search = () => {
             <Song key={song.id} song={song} setAudioSRC={setAudioSRC} setSongInfo={setSongInfo} />
           ))}
       </section>
-      {/* <ReactJkMusicPlayer
-        theme="light"
-        autoPlay="false"
-        audioLists={[
-          {
-            name: 'Tame Impala only going backwards',
-            cover:
-              'https://i.ytimg.com/vi/wycjnCCgUes/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCKZoPqsukMB-aXNXFxMcsaol7H6w',
-            musicSrc:
-              'http://localhost:8080/https://r1---sn-hpjgvnj5o-cvhs.googlevideo.com/videoplayback?expire=1586722458&ei=OiKTXs7yMsn54-EPxa2E4AE&ip=103.198.164.95&id=o-AE-MHfR4WD01fW_m3MDe-QTqfhO_t0z6RRhGpiuNl5Cn&itag=140&source=youtube&requiressl=yes&mh=iw&mm=31%2C29&mn=sn-hpjgvnj5o-cvhs%2Csn-cvh76nez&ms=au%2Crdu&mv=m&mvi=0&pl=24&gcr=in&initcwndbps=382500&vprv=1&mime=audio%2Fmp4&gir=yes&clen=3238574&dur=200.063&lmt=1575011845678447&mt=1586700754&fvip=4&keepalive=yes&c=WEB&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=ALrAebAwRQIgOOT7CYSn5r-U_aB4PVsjj7-7gjDgzavkkXwGD1b7qncCIQDbuZVASJ1Vul7alF5xKJokPzJeG6lbo7KyovUa5IJZIw%3D%3D&ratebypass=yes&sig=AJpPlLswRgIhAMw6AbkTh2Iqv96jBIm9E8Pvb4lPQ2dklPOhoqOkXwfNAiEAwC1aldRb_92fshlSa0-J3g9gSPubvz6szPdfgmgXiHA%3D',
-          },
-        ]}
-      />
-      /> */}
     </main>
   )
 }

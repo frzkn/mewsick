@@ -3,11 +3,7 @@ import './Loader.scss'
 
 const Loader = () => {
   return (
-    <div className="lds-roller">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="lds-ring">
       <div></div>
       <div></div>
       <div></div>
